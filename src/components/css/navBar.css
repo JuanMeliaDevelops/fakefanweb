@@ -1,0 +1,104 @@
+.navbarmain{
+    margin: auto;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    border-bottom: 1px solid gray;
+  }
+
+
+  .logo{
+    margin: auto;
+
+}
+
+.subtitulo{
+    margin: auto;
+    font-weight: lighter;
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Teko', sans-serif;
+  }
+
+  
+  .navbarmain ul{
+    text-align: center;
+    display: flex;
+    padding-top: 4%;
+    margin: auto;
+    justify-content: space-evenly;
+  
+  
+  }
+  .navbarmain ul li {
+
+    list-style: none;
+  
+  
+  }
+  .navbarmain ul li a{
+      
+    text-decoration: line-through;
+    font-weight: lighter;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Teko', sans-serif;
+  
+  
+  }
+
+  .hoverespecial:hover{
+    color: darkgray;
+    text-decoration: underline;
+  
+  }
+  .hovernormal:hover{
+    color: darkgray;
+    text-decoration: overline;
+  
+  }
+
+
+  
+@media only screen and (max-width: 950px) {
+
+    
+    .navbarmain ul{
+      padding-top: 5%;
+  
+  
+    }
+    .navbarmain ul li a{
+      font-size: 1.2rem;
+  
+  
+    }
+
+
+  }
+  
+  @media only screen and (max-width: 500px) {
+
+
+    .navbarmain ul{
+      flex-direction: column;
+    }
+  
+    .navbarmain ul li {
+      padding: 15%;
+    }
+    .navbarmain ul li a{
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: bolder;
+  
+  
+  
+    }
+  
+  
+  }
+  
