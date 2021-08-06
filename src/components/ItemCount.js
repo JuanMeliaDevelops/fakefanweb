@@ -41,7 +41,7 @@ onClick={() => {
 onClick={() => { 
     if (itemsBuy === itemStock || itemStock === 0 ){
         setItemsBuy (itemsBuy+0);
-        document.getElementById('alertaStock').innerHTML = 'Actualmente no disponemos de stock <br/><br/>'  ;
+        document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
     }
     else {
         setItemsBuy(itemsBuy + 1);        
@@ -50,9 +50,9 @@ onClick={() => {
  
  </div>
  
-<br/>
-<h6 id='alertaStock' > </h6>
 
+<h6 id='alertaStock' > </h6>
+<br/>
 <Button variant='dark' >add to cart</Button>
 
 </div>
