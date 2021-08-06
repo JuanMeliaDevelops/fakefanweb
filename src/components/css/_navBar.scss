@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+// @import url('./assets/fonts/candara.ttf');
+
+// $fuente2:'candara' ;
+$fuente1: 'Teko', sans-serif ;
+
 .navbarmain{
     margin: auto;
     width: 100%;
@@ -19,7 +25,7 @@
     color: black;
     font-size: 1.6rem;
     font-weight: 400;
-    font-family: 'Teko', sans-serif;
+    font-family: $fuente1;
   }
 
   
@@ -45,7 +51,7 @@
     color: black;
     font-size: 1.5rem;
     font-weight: 600;
-    font-family: 'Teko', sans-serif;
+    font-family: $fuente1;
   
   
   }
@@ -64,7 +70,7 @@
   .carritoContainer{
     display: flex;
   flex-direction:row-reverse;
-  margin-right: 2%;
+  margin-right: 4%;
   
 
   }

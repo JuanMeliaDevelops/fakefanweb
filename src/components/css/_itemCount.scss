@@ -1,0 +1,29 @@
+
+.itemCounter{
+margin-top: 5%;
+text-align: center;
+
+}
+
+.buttonIcon{
+    cursor: pointer;
+    font-size: 3rem;
+}
+.buttonIcon img{
+    width: 60%;
+}
+
+.buttonIcon:active{
+opacity: 0.6;
+}
+
+.itemSum{
+    display: flex;
+    flex-direction:row ;
+    justify-content: center;
+}
+.itemCount{
+   
+    
+    margin: 1%;
+}

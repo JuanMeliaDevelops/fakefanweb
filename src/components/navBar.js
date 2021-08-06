@@ -1,15 +1,14 @@
 import CartWidget from './CartWidget';
-import './css/navBar.css'
+import './css/main.scss'
+import fakefanlogo from './assets/imgs/fakefan-logo-vec-web.png'
 
 function NavBar () {
     return (
         
         <div className="navbarmain">
-          <style>
-            @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
-          </style>
 
-        <h1 className="logo" >FAKEFAN</h1> 
+
+        <img style={{width:'10%'}} alt='FakeFanTheLabelLogo' src={fakefanlogo} />
         <h3 className="subtitulo">THELABEL</h3>
         
         

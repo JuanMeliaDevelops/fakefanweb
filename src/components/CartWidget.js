@@ -1,13 +1,13 @@
-import carritoPng from "../imgs/icons8-fast-cart-48.png"
-import './css/navBar.css'
+import carritoPng from "./assets/imgs/icons/icons8-fast-cart-48.png"
+import './css/main.scss'
 
 function CartWidget () {
     return (
         
         <div className="">
 
-            <a className="carritoContainer" href="#"> 
-            <img className="carrito" src={carritoPng} />
+            <a className="carritoContainer"  href="#carrito"> 
+            <img className="carrito" alt='carritoCompra' src={carritoPng} />
             </a>
             
         
