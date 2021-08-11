@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import iconMas from './assets/imgs/icons/icons8-más-48.png'
 import iconMenos from './assets/imgs/icons/icons8-menos-48.png'
 
-export default function ItemCount ({stock, initial}) {
+export default function ItemCount ({stock, initial, addOn}) {
 
-   
-    const [itemsBuy, setItemsBuy] = useState(initial);
-    const [itemStock] = useState(stock);
-
-
-    useEffect(() => {
-       
-    }, [itemsBuy, itemStock]);
-
+const [itemsBuy, setItemsBuy] = useState(initial);
     
 return (
     
 <div className='itemCounter'> 
-
-<h3>Item</h3>
 
 <div className='itemSum'>
 
@@ -39,7 +29,7 @@ onClick={() => {
 
 <h3 className="buttonIcon" alt='sumarItem' 
 onClick={() => { 
-    if (itemsBuy === itemStock || itemStock === 0 ){
+    if (itemsBuy === stock || stock === 0 ){
         setItemsBuy (itemsBuy+0);
         document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
     }
