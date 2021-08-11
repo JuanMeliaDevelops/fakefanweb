@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import iconMas from './assets/imgs/icons/icons8-más-48.png'
 import iconMenos from './assets/imgs/icons/icons8-menos-48.png'
 
-export default function ItemCount ({stock, initial, addOn}) {
+export default function ItemCount ({stock, initial, onAdd}) {
 
 const [itemsBuy, setItemsBuy] = useState(initial);
     
@@ -20,9 +20,9 @@ onClick={() => {
         setItemsBuy (itemsBuy-0);
     }
     else {
-        setItemsBuy(itemsBuy - 1);
+        setItemsBuy(itemsBuy-1);
     }
-}}>  <img alt='restarCarrito' src={iconMenos} />  </h3>
+}}>  <img alt='restarCarrito' src={iconMenos} /> </h3>
 
 
 <h4 className="itemCount"> {itemsBuy} </h4> 
@@ -31,7 +31,8 @@ onClick={() => {
 onClick={() => { 
     if (itemsBuy === stock || stock === 0 ){
         setItemsBuy (itemsBuy+0);
-        document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
+     const alerta =   document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
+     setTimeout(function(){ document.getElementById('alertaStock').innerText = ''  ; }, 3000);
     }
     else {
         setItemsBuy(itemsBuy + 1);        
