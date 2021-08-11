@@ -1,6 +1,6 @@
 import CartWidget from './CartWidget';
 import './css/main.scss'
-import fakefanlogo from './assets/imgs/fakefan-logo-vec-web.png'
+import fakefanlogo from './assets/imgs/fakefanlogo.png'
 
 function NavBar () {
     return (
@@ -8,9 +8,7 @@ function NavBar () {
         <div className="navbarmain">
 
 
-        <img style={{width:'10%'}} alt='FakeFanTheLabelLogo' src={fakefanlogo} />
-        <h3 className="subtitulo">THELABEL</h3>
-        
+        <img style={{width:'15%'}} alt='FakeFanTheLabelLogo' src={fakefanlogo} />
         
         <ul>
           <li><a className="hovernormal" href="#tienda">SHOP\\\\</a></li>
