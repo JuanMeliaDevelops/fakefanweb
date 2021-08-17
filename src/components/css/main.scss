@@ -5,10 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+  font-family: 'Candarab';
+  src: local('Candarab'), url(../assets/fonts/Candarab.ttf) format('truetype');
+}
 
-
-$fuente2:'arial' ;
+$fuente2:'Candarab' ;
 $fuente1: 'Teko', sans-serif ;
+
+
 
 body::-webkit-scrollbar {
     width: 0.5em;

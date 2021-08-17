@@ -6,7 +6,7 @@ import loadingImg from './assets/imgs/loadingGif.gif'
 function ItemList() {
 
     const [loading, setLoading] = useState(false);
-    const [ItemData, setItemData] = useState({});
+    const [ItemData, setItemData] = useState([]);
     
     useEffect(() => {
 
@@ -15,7 +15,10 @@ function ItemList() {
             setTimeout(function () {
 
                 const fetchItem = {
-                    data: { id: 1, title: "Producto 1", description: 'Descripcion de producto', price: "100" + "$", pictureUrl: "imagen" }
+                    data: [
+                    { id: 1, title: "Producto 1", description: 'Descripcion de producto', price: "1500" + "$", pictureUrl: "imagen" },
+                    { id: 2, title: "Producto 2", description: 'Descripcion de producto', price: "2400" + "$", pictureUrl: "imagen" },
+                    { id: 3, title: "Producto 3", description: 'Descripcion de producto', price: "3700" + "$", pictureUrl: "imagen" } ] 
                 };
 
 
@@ -52,11 +55,10 @@ function ItemList() {
 
         <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
 
+            {/* <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
             <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
-            <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
-            <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
-
-
+            <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' /> */}
+            {ItemData.length > 0 && ItemData.map(Item => <Item id={Item.id} title={Item.title} description={Item.description} price={Item.price} pictureUrl='url' /> )}
         </div>
 
     )

@@ -1,6 +1,7 @@
 // @import url('./assets/fonts/candara.ttf');
 
 $fuente1: 'Teko', sans-serif ;
+$fuente2:'Candarab' ;
 
 .navbarmain{
     margin: auto;
@@ -17,15 +18,6 @@ $fuente1: 'Teko', sans-serif ;
 
 }
 
-.subtitulo{
-    margin: auto;
-    font-weight: lighter;
-    text-decoration: none;
-    color: black;
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-family: $fuente1;
-  }
 
   
   .navbarmain ul{
