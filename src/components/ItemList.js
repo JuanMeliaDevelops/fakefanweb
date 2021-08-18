@@ -55,10 +55,7 @@ function ItemList() {
 
         <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
 
-            {/* <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
-            <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' />
-            <Item id={ItemData.id} title={ItemData.title} description={ItemData.description} price={ItemData.price} pictureUrl='url' /> */}
-            {ItemData.length > 0 && ItemData.map(Item => <Item id={Item.id} title={Item.title} description={Item.description} price={Item.price} pictureUrl='url' /> )}
+            {ItemData.length > 0 && ItemData.map(item => <Item id={Item.id} title={Item.title} description={Item.description} price={Item.price} pictureUrl='url' /> )}
         </div>
 
     )
