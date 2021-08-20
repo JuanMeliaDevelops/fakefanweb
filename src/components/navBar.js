@@ -14,7 +14,7 @@ function NavBar () {
         
         <ul>
           <li> <Link to='/' className="hovernormal"> SHOP\\\\ </Link></li>
-          <li><Link to='/newDrops' className="hovernormal"> NEW DROPS|||| </Link></li>
+          <li><Link to='/newDrops' className="hoverespecial"> NEW DROPS|||| </Link></li>
           <li><Link to='/connect' className="hovernormal"> CONNECT+ </Link></li>
         </ul>
 

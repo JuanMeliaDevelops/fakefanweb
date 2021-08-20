@@ -47,6 +47,18 @@ $fuente2:'Candarab' ;
   
   }
 
+  .hoverespecial{
+    
+    text-decoration: line-through;
+    font-weight: lighter;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: $fuente1;
+  
+  
+  }
+
   .hoverespecial:hover{
     
     text-decoration: underline;
