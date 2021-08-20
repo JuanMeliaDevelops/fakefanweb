@@ -1,0 +1,25 @@
+.itemDetailContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.itemDetailImgContainer{
+    width: 25vw;
+    height: 50vh;
+    
+}
+.itemDetailImg{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.itemDetails{
+    margin-left: -5%;
+    margin-top: 4%;
+
+}

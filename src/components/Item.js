@@ -1,13 +1,13 @@
 import './css/main.scss'
-import itemImg from './assets/imgs/labelstyle.jpg'
 
-function Item({ id, title, description, price, pictureUrl }) {
+
+function Item({id, title, description, price, pictureUrl, altImg}) {
     
 
     return (
 
         <div className="itemContainer">
-        <div className='itemImgContainer'> <img alt='itemPonchoNike' src={itemImg} /></div>
+        <div className='itemImgContainer'> <img  src={pictureUrl} alt={altImg} /></div>
 
         <div className='itemProps'>
         <h3>{title}</h3>

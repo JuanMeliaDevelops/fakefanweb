@@ -35,7 +35,7 @@ $fuente2:'Candarab' ;
   
   
   }
-  .navbarmain ul li a{
+  .hovernormal{
       
     text-decoration: line-through;
     font-weight: lighter;
@@ -50,11 +50,13 @@ $fuente2:'Candarab' ;
   .hoverespecial:hover{
     
     text-decoration: underline;
+    color: black;
   
   }
   .hovernormal:hover{
     
     text-decoration: overline;
+    color: black;
   
   }
 
