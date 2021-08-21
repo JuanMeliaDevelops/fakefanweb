@@ -12,8 +12,8 @@ function ItemList({items}) {
    
     return (
 
-        <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
-  {items.length > 0 && items.map(item => <Link to={`/newDrops/${item.id}`}> <Item  title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} alt={item.altImg} /> </Link> )}
+        <div className='' style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
+  {items.length > 0 && items.map(item => <Link className='itemContainer' to={`/newDrops/${item.id}`}> <Item  title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} alt={item.altImg} /> </Link> )}
         </div>
 
     )

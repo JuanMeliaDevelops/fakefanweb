@@ -63,7 +63,7 @@ function ItemDetailContainer() {
     return (
 
         <div>
-            <ItemDetail details={ItemDetails[id-1]}/>
+          {ItemDetails.length > 0 && <ItemDetail details={ItemDetails[id-1]}/>}  
         </div>
 
     )

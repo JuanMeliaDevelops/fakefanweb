@@ -6,7 +6,7 @@ function Item({id, title, description, price, pictureUrl, altImg}) {
 
     return (
 
-        <div className="itemContainer">
+        <div className="">
         <div className='itemImgContainer'> <img  src={pictureUrl} alt={altImg} /></div>
 
         <div className='itemProps'>

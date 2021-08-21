@@ -61,7 +61,7 @@ function ItemListContainer(props) {
   return (
 
     <div className="flex">
-      <h2>{props.greetings}</h2>
+      <h2 className='itemBigContainer' >{props.greetings}</h2>
 
       <div >
         <ItemList items={ItemData} />

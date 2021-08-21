@@ -32,7 +32,7 @@ onClick={() => {
     if (itemsBuy === stock || stock === 0 ){
         setItemsBuy (itemsBuy+0);
      const alerta =   document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
-     setTimeout(function(){ document.getElementById('alertaStock').innerText = ''  ; }, 3000);
+     setTimeout(function(){ document.getElementById('alertaStock').innerHTML = ''  ; }, 3000);
     }
     else {
         setItemsBuy(itemsBuy + 1);        

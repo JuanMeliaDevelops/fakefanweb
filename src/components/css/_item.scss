@@ -1,15 +1,25 @@
 $fuente2:'arial' ;
 
+.itemBigContainer{
+    border-bottom: solid 1px black;
+    padding-bottom: 2%;
+    width: 80vw;
+    display: inline-block;
+}
 .itemContainer{
     margin-top: 4%;
     margin: 2%;
     width: 20vw;
     text-align: left;
+    color: black;
+    text-decoration: none;
+    
     
 }
 
 .itemContainer:hover{
     border: solid 1px darkgray;
+    color: black;
     cursor: pointer;
 }
 
