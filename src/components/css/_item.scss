@@ -1,43 +1,52 @@
-$fuente2:'arial' ;
+$fuente2: "arial";
 
-.itemBigContainer{
+.itemBigContainer {
     border-bottom: solid 1px black;
     padding-bottom: 2%;
     width: 72vw;
     display: inline-block;
 }
-.itemContainer{
+.itemContainer {
     margin-top: 0%;
     margin: 2%;
     width: 20vw;
+    height: 55vh;
     text-align: left;
     color: black;
     text-decoration: none;
-    
-    
 }
 
-.itemContainer:hover{
+.itemContainer:hover {
     border: solid 1px darkgray;
     color: black;
     cursor: pointer;
+    .buyBoton {
+        display: block;
+    }
 }
 
-.itemImgContainer{
+.itemImgContainer {
     width: 100%;
     height: 35vh;
 }
 
-.itemImgContainer img{
-    width: 100%;   
+.itemImgContainer img {
+    width: 100%;
     height: 100%;
-    object-fit:  cover;
+    object-fit: cover;
     object-position: 20% 10%;
-
 }
 
-.itemProps{
+.itemProps {
     padding-left: 5%;
-    padding-top: 2%;  
-    
+    padding-top: 2%;
+}
+
+.buyBoton {
+    position:absolute ;
+    display: none;
+   margin-top: 7.5%;
+   margin-left: 7.5%;
+   opacity: 0.9;
+   
 }
