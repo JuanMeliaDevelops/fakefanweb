@@ -6,15 +6,19 @@ import iconMenos from './assets/imgs/icons/icons8-menos-48.png'
 export default function ItemCount ({stock, initial, onAdd}) {
 
 const [itemsBuy, setItemsBuy] = useState(initial);
-    
-return (
-    
-<div className='itemCounter'> 
 
-<div className='itemSum'>
+const sumar = () => { 
+    if (itemsBuy === stock || stock === 0 ){
+        setItemsBuy (itemsBuy+0);
+     const alerta =   document.getElementById('alertaStock').innerHTML = 'Actualmente no disponemos de stock'  ;
+     setTimeout(function(){ document.getElementById('alertaStock').innerHTML = ''  ; }, 3000);
+    }
+    else {
+        setItemsBuy(itemsBuy + 1);        
+    }
+};
 
-<h3 className="buttonIcon" alt='restarItem' 
-onClick={() => {
+const restar = () => {
 
     if (itemsBuy === 1){
         setItemsBuy (itemsBuy-0);
@@ -22,22 +26,21 @@ onClick={() => {
     else {
         setItemsBuy(itemsBuy-1);
     }
-}}>  <img alt='restarCarrito' src={iconMenos} /> </h3>
+} ;
+
+    
+return (
+    
+<div className='itemCounter'> 
+
+<div className='itemSum'>
+
+<h3 className="buttonIcon" alt='restarItem' onClick={restar}>  <img alt='restarCarrito' src={iconMenos} /> </h3>
 
 
 <h4 className="itemCount"> {itemsBuy} </h4> 
 
-<h3 className="buttonIcon" alt='sumarItem' 
-onClick={() => { 
-    if (itemsBuy === stock || stock === 0 ){
-        setItemsBuy (itemsBuy+0);
-     const alerta =   document.getElementById('alertaStock').innerText = 'Actualmente no disponemos de stock'  ;
-     setTimeout(function(){ document.getElementById('alertaStock').innerHTML = ''  ; }, 3000);
-    }
-    else {
-        setItemsBuy(itemsBuy + 1);        
-    }
-}} >  <img alt='sumarCarrito' src={iconMas} />  </h3>
+<h3 className="buttonIcon" alt='sumarItem' onClick={sumar} >  <img alt='sumarCarrito' src={iconMas} />  </h3>
  
  </div>
  

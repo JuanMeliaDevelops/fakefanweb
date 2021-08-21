@@ -1,9 +1,14 @@
+.itemDetailBigContainer{
+    border-top: solid 1px black;
+
+}
+
 .itemDetailContainer{
     display: flex;
     justify-content: center;
-    margin-top: 4%;
     margin-right: auto;
     margin-left: auto;
+
 }
 
 
@@ -22,4 +27,17 @@ object-fit: cover;
     margin-left: -5%;
     margin-top: 4%;
 
+}
+
+.buttonVolver{
+    color: black;
+    text-decoration: none;
+    display:flex ;
+    margin-left: 15%;
+    margin-top:2%;
+}
+
+
+.buttonVolver:hover{
+    color: black;
 }
