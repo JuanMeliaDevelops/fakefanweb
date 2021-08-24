@@ -23,7 +23,7 @@ function App() {
     <Switch>
 
     <Route exact path='/'>
-      <Home/>
+    <ItemListContainer greetings="Shop\\" />  
     </Route>
 
     <Route exact path='/newDrops'>
@@ -33,6 +33,13 @@ function App() {
     <Route exact path='/newDrops/:id'>
     <ItemDetailContainer  />  
     </Route>
+
+    <Route exact path='/category/category/:id'>
+    <ItemListContainer greetings="Connect\\" />  
+    </Route>
+
+
+  
 
     </Switch>
     </BrowserRouter>
