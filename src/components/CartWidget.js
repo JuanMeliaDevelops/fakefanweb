@@ -1,17 +1,20 @@
 import carritoPng from "./assets/imgs/icons/icons8-fast-cart-48.png"
 import './css/main.scss'
+import { Link } from 'react-router-dom';
 
-function CartWidget () {
+function CartWidget() {
     return (
-        
+
         <div className="">
 
-            <a className="carritoContainer"  href="#carrito"> 
-            <img className="carrito" alt='carritoCompra' src={carritoPng} />
-            </a>
-            
-        
-      </div>
+            <Link  className="carritoContainer" to='/cart'>
+         
+                    <img className="carrito" alt='carritoCompra' src={carritoPng} />
+           
+            </Link>
+
+
+        </div>
 
     )
 }

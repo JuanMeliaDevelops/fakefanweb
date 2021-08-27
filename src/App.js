@@ -6,6 +6,7 @@ import NavBar from './components/navBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from "./components/ItemDetailContainer";
 
+
 // Pages
 import Home from './components/pages/Home.js';
 
@@ -21,8 +22,17 @@ function App() {
     <NavBar/>
   
     <Switch>
-
     <Route exact path='/'>
+    <ItemListContainer  greetings="Connect+" />  
+    </Route>
+
+    <Route exact path='/category'>
+   
+    <ItemListContainer greetings="Shop\\" />  
+    
+    </Route>
+
+    <Route exact path='/category/:categoryId'>
     <ItemListContainer greetings="Shop\\" />  
     </Route>
 
@@ -31,11 +41,14 @@ function App() {
     </Route>
 
     <Route exact path='/newDrops/:id'>
-    <ItemDetailContainer  />  
+    <ItemDetailContainer />  
     </Route>
 
-    <Route exact path='/category/category/:id'>
-    <ItemListContainer greetings="Connect\\" />  
+   
+    
+
+    <Route exact path='/cart'>
+     <h4>Cart, componente vacio</h4>
     </Route>
 
 

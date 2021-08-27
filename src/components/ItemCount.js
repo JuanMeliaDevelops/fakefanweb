@@ -7,7 +7,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
 
     const [itemsBuy, setItemsBuy] = useState(initial);
     const [hasStock, setHasStock] = useState(true);
-    console.log(hasStock)
+
     const sumar = () => {
         if (itemsBuy === stock || stock === 0) {
             setItemsBuy(itemsBuy + 0);
@@ -54,7 +54,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
 
 
             <br />
-            <Button variant='dark' >add to cart</Button>
+            <Button variant='dark' onClick={onAdd} >add to cart</Button>
 
         </div>
 

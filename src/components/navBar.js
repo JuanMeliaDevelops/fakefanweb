@@ -13,9 +13,9 @@ function NavBar() {
 
 
       <ul>
-        <li> <Link to='/' className="hovernormal"> SHOP\\\\ </Link></li>
+        <li> <Link to='/category' className="hovernormal"> SHOP\\\\ </Link></li>
         <li><Link to='/newDrops' className="hoverespecial"> NEW DROPS|||| </Link></li>
-        <li><Link to='/category/category/:id' className="hovernormal"> CONNECT+ </Link></li>
+        <li><Link to='/' className="hovernormal"> CONNECT+ </Link></li>
       </ul>
 
       <CartWidget />
