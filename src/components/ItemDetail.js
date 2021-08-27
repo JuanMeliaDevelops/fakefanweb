@@ -17,8 +17,9 @@ function ItemDetail({ details }) {
     const addProduct = () => {
         console.log('Agregar', cantidad, 'de', details)
 
-        if (cantidad!==0 && cantidad<=stock){
-        setProductAdded(true);}
+        if (cantidad !== 0 && cantidad <= stock) {
+            setProductAdded(true);
+        }
     };
 
     const showItemCount = () => {
@@ -31,8 +32,18 @@ function ItemDetail({ details }) {
     const showButton = () => {
 
         return (
-            <Link to='/cart'><Button variant='dark' style={{ marginTop: "10%" }}>Go to cart</Button></Link>
+            <div>
+                <Link to='/cart'><Button variant='dark' style={{ marginTop: "10%" }}>Go to cart</Button></Link>
+                <br /> <br />
+                <h6 >Tu producto ya esta en el carrito de compras!</h6>
+            </div>
+
+
         )
+
+
+
+
     }
 
     return (
