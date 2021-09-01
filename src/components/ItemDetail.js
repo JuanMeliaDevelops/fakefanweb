@@ -4,6 +4,9 @@ import './css/main.scss'
 import ItemCount from './ItemCount';
 import { Button } from 'react-bootstrap';
 
+import { useContext } from "react"
+import { CartContext } from '../context/cartContext';
+
 
 function ItemDetail({ details }) {
 
@@ -13,13 +16,21 @@ function ItemDetail({ details }) {
 
     const [stock, setStock] = useState(6);
 
+    const [itemAdded, setItemAdded] = useContext(CartContext);
+
 
     const addProduct = () => {
-        console.log('Agregar', cantidad, 'de', details)
+
 
         if (cantidad !== 0 && cantidad <= stock) {
+
             setProductAdded(true);
+
+            setItemAdded(itemAdded = {item: details, quantity: cantidad }) ;
+            console.log(itemAdded)
         }
+
+
     };
 
     const showItemCount = () => {
@@ -30,6 +41,7 @@ function ItemDetail({ details }) {
     }
 
     const showButton = () => {
+
 
         return (
             <div>

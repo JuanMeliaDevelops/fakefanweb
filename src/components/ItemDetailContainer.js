@@ -50,7 +50,7 @@ function ItemDetailContainer() {
     }, []);
 
 
-     if (loading===true) {
+     if (loading) {
       return (
           <div className="App" style={{ marginTop: "15vh" }}>
               <h3>Loading Products...</h3>

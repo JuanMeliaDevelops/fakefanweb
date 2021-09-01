@@ -36,7 +36,7 @@ function ItemListContainer(props) {
 
                 resolve(fetchItem);
 
-            }, 2000);
+            }, 1000);
 
 
         }).then((dataResolve) => {
@@ -58,7 +58,7 @@ function ItemListContainer(props) {
 
 
 
-    if (loading === true) {
+    if (loading) {
         return (
             <div className="App" style={{ marginTop: "15vh" }}>
                 <h3>Loading Products...</h3>

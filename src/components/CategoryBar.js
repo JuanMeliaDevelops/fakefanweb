@@ -3,21 +3,25 @@ import './css/main.scss'
 
 
 
+
 export default function CategoryBar() {
+
+
+
   return (
-<div>
-    <div className="categoryBar">
+    <div>
+      <div className="categoryBar">
 
 
-      <ul>
-          <li><Link to='/category' className="">Todo</Link></li>
-        <li> <Link to='/category/poncho' className="">Poncho</Link></li>
-        <li><Link to='/category/parka' className="">Parka</Link></li>
-        
-      </ul>
+        <ul>
+          <li className="" ><Link to='/category' >Todo</Link></li>
+          <li className=""> <Link to='/category/poncho' >Poncho</Link></li>
+          <li className="" ><Link to='/category/parka' className="">Parka</Link></li>
+
+        </ul>
 
 
-    </div>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,15 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import { useState } from "react";
 import './App.css';
 
 // Components
 import NavBar from './components/navBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/cart";
+
+// Context
+import { CartContext } from "./context/cartContext";
 
 
 // Pages
@@ -12,16 +17,31 @@ import Home from './components/pages/Home.js';
 
 
 function App() {
+
+// cartContext
+
+const [itemAdded, setItemAdded] = useState();
+
+
+
   return (
 
     
     <div className="App">
       
-  
+
+
+
     <BrowserRouter>
-    <NavBar/>
+    
+
   
     <Switch>
+
+    <CartContext.Provider value={{itemAdded,setItemAdded}}>
+
+    <NavBar/>
+
     <Route exact path='/'>
     <ItemListContainer  greetings="Connect+" />  
     </Route>
@@ -44,15 +64,12 @@ function App() {
     <ItemDetailContainer />  
     </Route>
 
-   
-    
-
     <Route exact path='/cart'>
-     <h4>Cart, componente vacio</h4>
+    <Cart/>
     </Route>
 
-
-  
+    </CartContext.Provider>
+   
 
     </Switch>
     </BrowserRouter>
