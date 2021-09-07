@@ -29,6 +29,8 @@ export default function ItemCount({ stock, initial, onAdd }) {
         }
     };
 
+    
+
     const showAlert = () => {
         return (
             <h6>Actualmente no disponemos de stock</h6>
@@ -54,7 +56,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
 
 
             <br />
-            <Button variant='dark' onClick={onAdd} >add to cart</Button>
+            <Button variant='dark' onClick={() => onAdd(itemsBuy)} >add to cart</Button>
 
         </div>
 

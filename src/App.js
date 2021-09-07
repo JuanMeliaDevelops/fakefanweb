@@ -1,6 +1,7 @@
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import './App.css';
+
 
 // Components
 import NavBar from './components/navBar';
@@ -18,62 +19,61 @@ import Home from './components/pages/Home.js';
 
 function App() {
 
-// cartContext
+  // cartContext
 
-const [itemAdded, setItemAdded] = useState();
-
-
-
-  return (
-
-    
-    <div className="App">
-      
-
-
-
-    <BrowserRouter>
-    
+  const [itemAdded, setItemAdded] = useState([]);
 
   
-    <Switch>
+  return (
 
-    <CartContext.Provider value={{itemAdded,setItemAdded}}>
 
-    <NavBar/>
+    <div className="App">
 
-    <Route exact path='/'>
-    <ItemListContainer  greetings="Connect+" />  
-    </Route>
 
-    <Route exact path='/category'>
-   
-    <ItemListContainer greetings="Shop\\" />  
-    
-    </Route>
 
-    <Route exact path='/category/:categoryId'>
-    <ItemListContainer greetings="Shop\\" />  
-    </Route>
 
-    <Route exact path='/newDrops'>
-    <ItemListContainer greetings="Drops\\" />  
-    </Route>
+      <BrowserRouter>
 
-    <Route exact path='/newDrops/:id'>
-    <ItemDetailContainer />  
-    </Route>
 
-    <Route exact path='/cart'>
-    <Cart/>
-    </Route>
 
-    </CartContext.Provider>
-   
+        <Switch>
 
-    </Switch>
-    </BrowserRouter>
-    
+          <CartContext.Provider value={{itemAdded, setItemAdded}}>
+
+            <NavBar />
+
+            <Route exact path='/'>
+              <ItemListContainer greetings="Connect+" />
+            </Route>
+
+            <Route exact path='/category'>
+
+              <ItemListContainer greetings="Shop\\" />
+
+            </Route>
+
+            <Route exact path='/category/:categoryId'>
+              <ItemListContainer greetings="Shop\\" />
+            </Route>
+
+            <Route exact path='/newDrops'>
+              <ItemListContainer greetings="Drops\\" />
+            </Route>
+
+            <Route exact path='/newDrops/:id'>
+              <ItemDetailContainer />
+            </Route>
+
+            <Route exact path='/cart'>
+              <Cart />
+            </Route>
+
+          </CartContext.Provider>
+
+
+        </Switch>
+      </BrowserRouter>
+
     </div>
   );
 }

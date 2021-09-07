@@ -14,29 +14,38 @@ function ItemDetail({ details }) {
 
     const [productAdded, setProductAdded] = useState(false);
 
-    const [stock, setStock] = useState(6);
+    const [stock] = useState(6);
 
-    const [itemAdded, setItemAdded] = useContext(CartContext);
+    const { itemAdded, setItemAdded } = useContext(CartContext);
 
 
-    const addProduct = () => {
+    const isInCart = false;
+
+    const onAdd = (count) => {
 
 
         if (cantidad !== 0 && cantidad <= stock) {
 
-            setProductAdded(true);
+            if (!isInCart) {
+                setCantidad(count);
+                setProductAdded(true);
+                console.log('Se agrego', count, ' de ', details.title)
+                itemAdded.push({ ...details, quantity: count })
+                setItemAdded(itemAdded);
+                console.log(itemAdded)
 
-            setItemAdded(itemAdded = {item: details, quantity: cantidad }) ;
-            console.log(itemAdded)
+            }
+
+
         }
 
 
-    };
+    }
 
     const showItemCount = () => {
 
         return (
-            <ItemCount initial={cantidad} stock={stock} onAdd={addProduct} />
+            <ItemCount initial={cantidad} stock={stock} onAdd={onAdd} />
         )
     }
 
