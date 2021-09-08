@@ -25,15 +25,13 @@ function ItemListContainer(props) {
             setLoading(true);
             setTimeout(function () {
 
-                const fetchItem = {
-                    data: [
-                        { id: 1, categoryId: 'poncho', title: "Nike Nikelab Acg Gore Tex 3", description: 'Nike Poncho vest black yellow rain wind jacket.', price: "120" + "$", pictureUrl: itemImg, altImg: 'Poncho Nike Nikelab Acg Gore Tex 3' },
-                        { id: 2, categoryId: 'parka', title: "Y-3 CLASSIC HOODED TRENCH", description: 'Y-3 Spring/Summer 2021 – Chapter 2.', price: "250" + "$", pictureUrl: itemImg2, altImg: 'Y-3 Classic Hooded Trench' },
-                        { id: 3, categoryId: 'parka', title: "Y-3 XPLORIC RAIN.RDY PARKA", description: 'Y-3 Technical rain parka for the stormiest weather and plenty of pockets.', price: "80" + "$", pictureUrl: itemImg3, altImg: 'Y-3 Technical rain parka' },
+                const fetchItem = [
 
+                    { id: '1', categoryId: 'poncho', title: "Nike Nikelab Acg Gore Tex 3", description: 'Nike Poncho vest black yellow rain wind jacket.', price: "120" + "$", pictureUrl: itemImg, altImg: 'Poncho Nike Nikelab Acg Gore Tex 3' },
+                    { id: '2', categoryId: 'parka', title: "Y-3 CLASSIC HOODED TRENCH", description: 'Y-3 Spring/Summer 2021 – Chapter 2.', price: "250" + "$", pictureUrl: itemImg2, altImg: 'Y-3 Classic Hooded Trench' },
+                    { id: '3', categoryId: 'parka', title: "Y-3 XPLORIC RAIN.RDY PARKA", description: 'Y-3 Technical rain parka for the stormiest weather and plenty of pockets.', price: "80" + "$", pictureUrl: itemImg3, altImg: 'Y-3 Technical rain parka' },
 
-                    ],
-                };
+                ];
 
 
                 resolve(fetchItem);
@@ -44,11 +42,11 @@ function ItemListContainer(props) {
         }).then((dataResolve) => {
             setLoading(false);
             if (categoryId) {
-                const filteredItems = dataResolve.data.filter(
+                const filteredItems = dataResolve.filter(
                     (item) => item.categoryId === categoryId);
                 setItemData(filteredItems);
             } else {
-                setItemData(dataResolve.data);
+                setItemData(dataResolve);
             }
 
 

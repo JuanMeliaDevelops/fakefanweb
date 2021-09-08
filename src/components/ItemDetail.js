@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/main.scss'
 import ItemCount from './ItemCount';
 import { Button } from 'react-bootstrap';
+import { useParams } from "react-router-dom";
 
 import { useContext } from "react"
 import { CartContext } from '../context/cartContext';
@@ -18,8 +19,15 @@ function ItemDetail({ details }) {
 
     const { itemAdded, setItemAdded } = useContext(CartContext);
 
+    const { id } = useParams();
 
-    const isInCart = false;
+    const [isInCart, setIsInCart] = useState(false);
+
+
+
+
+   
+
 
     const onAdd = (count) => {
 
@@ -34,13 +42,12 @@ function ItemDetail({ details }) {
                 setItemAdded(itemAdded);
                 console.log(itemAdded)
 
+    
+
             }
-
-
         }
-
-
     }
+
 
     const showItemCount = () => {
 
