@@ -16,7 +16,7 @@ function Item({id, title, description, price, pictureUrl, altImg}) {
         <h3>{title}</h3>
         <p>{description}</p>
 
-        <h4>{price}</h4>
+        <h4>${price}</h4>
         
         </div>
       

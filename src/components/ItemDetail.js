@@ -88,7 +88,7 @@ function ItemDetail({ details }) {
 
                     <h3>{details.title}</h3>
                     <p>{details.description}</p>
-                    <h4>{details.price}</h4>
+                    <h4>${details.price}</h4>
                     {!productAdded && showItemCount()}
                     {productAdded && showButton()}
 

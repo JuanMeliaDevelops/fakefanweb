@@ -4,8 +4,10 @@ import './css/main.scss'
 import ItemList from './ItemList';
 import CategoryBar from "./CategoryBar";
 import loadingImg from './assets/imgs/loadingGif.gif'
-import { getData } from '../firebase';
 
+//Firebase
+import { getData } from '../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
 //Imagenes 
@@ -14,47 +16,83 @@ import itemImg2 from './assets/imgs/labelStyle2.jpg'
 import itemImg3 from './assets/imgs/labelStyle3.jpg'
 
 
+
 function ItemListContainer(props) {
     const [loading, setLoading] = useState(false);
     const [itemData, setItemData] = useState([]);
     const { categoryId } = useParams();
 
+
+    const fetchProductos = async () => {
+        setLoading(true);
+        const fetchCollection = collection(getData(), 'productos');
+        const productSnaphot = await getDocs(fetchCollection);
+        const productList = productSnaphot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+
+        if (categoryId) {
+            const categories = query(fetchCollection, where( `${categoryId}`, '==', `{categoryId}`));
+            const productSnaphot = await getDocs(categories);
+            const categoryList = productSnaphot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            
+            setItemData(categoryList);
+        } else {
+            setItemData(productList);
+        }
+
+        setLoading(false);
+
+    };
+
+
     useEffect(() => {
+        fetchProductos();
 
-        const promesa = new Promise((resolve) => {
-            setLoading(true);
-            setTimeout(function () {
-
-                const fetchItem = [
-
-                    { id: '1', categoryId: 'poncho', title: "Nike Nikelab Acg Gore Tex 3", description: 'Nike Poncho vest black yellow rain wind jacket.', price: "120" + "$", pictureUrl: itemImg, altImg: 'Poncho Nike Nikelab Acg Gore Tex 3' },
-                    { id: '2', categoryId: 'parka', title: "Y-3 CLASSIC HOODED TRENCH", description: 'Y-3 Spring/Summer 2021 – Chapter 2.', price: "250" + "$", pictureUrl: itemImg2, altImg: 'Y-3 Classic Hooded Trench' },
-                    { id: '3', categoryId: 'parka', title: "Y-3 XPLORIC RAIN.RDY PARKA", description: 'Y-3 Technical rain parka for the stormiest weather and plenty of pockets.', price: "80" + "$", pictureUrl: itemImg3, altImg: 'Y-3 Technical rain parka' },
-
-                ];
+    }, []);
 
 
-                resolve(fetchItem);
-
-            }, 1000);
 
 
-        }).then((dataResolve) => {
-            setLoading(false);
-            if (categoryId) {
-                const filteredItems = dataResolve.filter(
-                    (item) => item.categoryId === categoryId);
-                setItemData(filteredItems);
-            } else {
-                setItemData(dataResolve);
-            }
+
+    // useEffect(() => {
+
+    //     const promesa = new Promise((resolve) => {
+    //         setLoading(true);
+    //         setTimeout(function () {
+
+    //             const fetchItem = [
+
+    //                 { id: '1', categoryId: 'poncho', title: "Nike Nikelab Acg Gore Tex 3", description: 'Nike Poncho vest black yellow rain wind jacket.', price: "120" + "$", pictureUrl: itemImg, altImg: 'Poncho Nike Nikelab Acg Gore Tex 3' },
+    //                 { id: '2', categoryId: 'parka', title: "Y-3 CLASSIC HOODED TRENCH", description: 'Y-3 Spring/Summer 2021 – Chapter 2.', price: "250" + "$", pictureUrl: itemImg2, altImg: 'Y-3 Classic Hooded Trench' },
+    //                 { id: '3', categoryId: 'parka', title: "Y-3 XPLORIC RAIN.RDY PARKA", description: 'Y-3 Technical rain parka for the stormiest weather and plenty of pockets.', price: "80" + "$", pictureUrl: itemImg3, altImg: 'Y-3 Technical rain parka' },
+
+    //             ];
 
 
-        }).catch((error) => {
-            console.log('Error Product not found')
-        })
+    //             resolve(fetchItem);
 
-    }, [categoryId]);
+    //         }, 1000);
+
+
+    //     }).then((dataResolve) => {
+    //         setLoading(false);
+    //         if (categoryId) {
+    //             const filteredItems = dataResolve.filter(
+    //                 (item) => item.categoryId === categoryId);
+    //             setItemData(filteredItems);
+    //         } else {
+    //             setItemData(dataResolve);
+    //         }
+
+
+    //     }).catch((error) => {
+    //         console.log('Error Product not found')
+    //     })
+
+    // }, [categoryId]);
 
 
 
