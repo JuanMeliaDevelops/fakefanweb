@@ -32,7 +32,7 @@ function App() {
 
 
 
-      <BrowserRouter>
+      <BrowserRouter  basename={process.env.PUBLIC_URL}>
 
 
 
