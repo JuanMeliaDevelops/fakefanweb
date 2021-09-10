@@ -3,12 +3,21 @@ $fuente2: "arial";
 .itemBigContainer {
     border-bottom: solid 1px black;
     padding-bottom: 2%;
-    width: 72vw;
+    width: 70vw;
     display: inline-block;
 }
+.itemProductsContainer {
+    margin: auto;
+    width: 70vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: space-evenly;
+    
+}
 .itemContainer {
-    margin-top: 0%;
-    margin: 2%;
+    margin: 3%;
     width: 20vw;
     height: 55vh;
     text-align: left;
@@ -43,10 +52,9 @@ $fuente2: "arial";
 }
 
 .buyBoton {
-    position:absolute ;
+    position: absolute;
     display: none;
-   margin-top: 7.5%;
-   margin-left: 7.5%;
-   opacity: 0.9;
-   
+    margin-top: 7.5%;
+    margin-left: 7.5%;
+    opacity: 0.9;
 }

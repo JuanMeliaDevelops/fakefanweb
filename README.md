@@ -1,5 +1,5 @@
-FAKEFANTHELABEL 
-e-commerce.
+# FAKEFANTHELABEL 
+### `e-commerce`
 
 Este sitio echo por react por ahora cuenta con:
 

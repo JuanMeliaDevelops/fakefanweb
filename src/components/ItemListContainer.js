@@ -1,6 +1,6 @@
+import './css/main.scss'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import './css/main.scss'
 import ItemList from './ItemList';
 import CategoryBar from "./CategoryBar";
 import loadingImg from './assets/imgs/loadingGif.gif'

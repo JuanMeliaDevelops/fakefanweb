@@ -23,7 +23,6 @@ function ItemDetailContainer() {
         const fetchCollection = collection(getData(), 'productos');
         const productSnaphot = await getDocs(fetchCollection);
         const productList = productSnaphot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
         const Product = productList.find(item => item.id === id )
               
         setItemDetails(Product);
@@ -89,7 +88,7 @@ function ItemDetailContainer() {
     return (
 
         <div>
-          {itemDetails && <ItemDetail details={itemDetails} />}  
+          {itemDetails && <ItemDetail details={itemDetails}  />}  
         </div>
 
     )

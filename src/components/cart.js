@@ -75,7 +75,7 @@ return (
 
         <div style={{ marginTop: '4%' }}>
 
-            {itemAdded.length > 0 && itemAdded.map(item => <div> <img style={{width:'10%'}} src={item.pictureUrl} alt={item.altImg} />  <h5>Producto: {item.title}</h5> <h5>Cantidad: {item.quantity}</h5>  <h5>Precio: {item.price}</h5>
+            {itemAdded.length > 0 && itemAdded.map(item => <div  key={item.title}> <img style={{width:'10%'}} src={item.pictureUrl} alt={item.altImg} />  <h5>Producto: {item.title}</h5> <h5>Cantidad: {item.quantity}</h5>  <h5>Precio: {item.price}</h5>
                 <h5>{item.description}</h5> <Button variant='dark' onClick={() => removeItem(item.id)}>Remove Item</Button> <hr /></div>)}
 
              
