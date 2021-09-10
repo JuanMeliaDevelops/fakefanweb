@@ -15,7 +15,7 @@ function ItemDetail({ details }) {
 
     const [productAdded, setProductAdded] = useState(false);
 
-    const [stock] = useState(6);
+    const [stock] = useState(details.stock);
 
     const { itemAdded, setItemAdded } = useContext(CartContext);
 
