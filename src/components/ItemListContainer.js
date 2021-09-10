@@ -31,7 +31,7 @@ function ItemListContainer(props) {
 
 
         if (categoryId) {
-            const categories = query(fetchCollection, where( `${categoryId}`, '==', `{categoryId}`));
+            const categories = query(fetchCollection, where( `${categoryId}`, '==', `categoryId`));
             const productSnaphot = await getDocs(categories);
             const categoryList = productSnaphot.docs.map(doc => ({
                 id: doc.id,
