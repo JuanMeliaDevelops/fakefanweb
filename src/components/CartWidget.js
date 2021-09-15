@@ -21,7 +21,7 @@ function CartWidget() {
 
     return (
 
-        <div className="">
+        <div className=""  >
 
             <Link style={{color:'black', textDecoration:'none',}} className="carritoContainer" to='/cart'>
                     <img   className="carrito" alt='carritoCompra' src={carritoPng} />

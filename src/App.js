@@ -8,6 +8,7 @@ import NavBar from './components/navBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/cart";
+import CompraForm from "./components/CompraForm";
 
 // Context
 import { CartContext } from "./context/cartContext";
@@ -22,6 +23,7 @@ function App() {
   // cartContext
 
   const [itemAdded, setItemAdded] = useState([]);
+  const [suma, setSuma] = useState([]); 
 
   
   return (
@@ -38,7 +40,7 @@ function App() {
 
         <Switch>
 
-          <CartContext.Provider value={{itemAdded, setItemAdded}}>
+          <CartContext.Provider value={{itemAdded, setItemAdded, suma, setSuma,}}>
 
             <NavBar />
 
@@ -66,6 +68,9 @@ function App() {
 
             <Route exact path='/cart'>
               <Cart />
+            </Route>
+            <Route exact path='/compra'>
+              <CompraForm/>
             </Route>
 
           </CartContext.Provider>
