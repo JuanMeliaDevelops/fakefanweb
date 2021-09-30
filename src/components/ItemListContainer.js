@@ -10,11 +10,6 @@ import { getData } from '../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
-//Imagenes 
-import itemImg from './assets/imgs/labelStyle.jpg'
-import itemImg2 from './assets/imgs/labelStyle2.jpg'
-import itemImg3 from './assets/imgs/labelStyle3.jpg'
-
 
 
 function ItemListContainer(props) {
@@ -31,14 +26,10 @@ function ItemListContainer(props) {
 
 
         if (categoryId) {
-            const categories = query(fetchCollection, where( `${categoryId}`, '==', `categoryId`));
-            const productSnaphot = await getDocs(categories);
-            const categoryList = productSnaphot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            
-            setItemData(categoryList);
+            const categoryFilter = productList.filter(
+                (item) => item.categoryId === categoryId);
+
+            setItemData(categoryFilter);
         } else {
             setItemData(productList);
         }
@@ -51,48 +42,8 @@ function ItemListContainer(props) {
     useEffect(() => {
         fetchProductos();
 
-    }, []);
+    }, [categoryId]);
 
-
-
-
-
-    // useEffect(() => {
-
-    //     const promesa = new Promise((resolve) => {
-    //         setLoading(true);
-    //         setTimeout(function () {
-
-    //             const fetchItem = [
-
-    //                 { id: '1', categoryId: 'poncho', title: "Nike Nikelab Acg Gore Tex 3", description: 'Nike Poncho vest black yellow rain wind jacket.', price: "120" + "$", pictureUrl: itemImg, altImg: 'Poncho Nike Nikelab Acg Gore Tex 3' },
-    //                 { id: '2', categoryId: 'parka', title: "Y-3 CLASSIC HOODED TRENCH", description: 'Y-3 Spring/Summer 2021 – Chapter 2.', price: "250" + "$", pictureUrl: itemImg2, altImg: 'Y-3 Classic Hooded Trench' },
-    //                 { id: '3', categoryId: 'parka', title: "Y-3 XPLORIC RAIN.RDY PARKA", description: 'Y-3 Technical rain parka for the stormiest weather and plenty of pockets.', price: "80" + "$", pictureUrl: itemImg3, altImg: 'Y-3 Technical rain parka' },
-
-    //             ];
-
-
-    //             resolve(fetchItem);
-
-    //         }, 1000);
-
-
-    //     }).then((dataResolve) => {
-    //         setLoading(false);
-    //         if (categoryId) {
-    //             const filteredItems = dataResolve.filter(
-    //                 (item) => item.categoryId === categoryId);
-    //             setItemData(filteredItems);
-    //         } else {
-    //             setItemData(dataResolve);
-    //         }
-
-
-    //     }).catch((error) => {
-    //         console.log('Error Product not found')
-    //     })
-
-    // }, [categoryId]);
 
 
 

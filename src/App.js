@@ -9,6 +9,8 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/cart";
 import CompraForm from "./components/CompraForm";
+import Footer from "./components/footer";
+import Connect from "./components/Connect";
 
 // Context
 import { CartContext } from "./context/cartContext";
@@ -45,7 +47,7 @@ function App() {
             <NavBar />
 
             <Route exact path='/'>
-              <ItemListContainer greetings="Connect+" />
+            <ItemListContainer greetings="Shop\\" />
             </Route>
 
             <Route exact path='/category'>
@@ -73,6 +75,10 @@ function App() {
               <CompraForm/>
             </Route>
 
+            <Route exact path='/connect'>
+              <Connect/>
+            </Route>
+    <Footer/>
           </CartContext.Provider>
 
 

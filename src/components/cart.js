@@ -16,7 +16,7 @@ export default function Cart() {
     const {suma, setSuma} = useContext(CartContext);
 
 
-    console.log(itemAdded)
+
 
 
 
@@ -30,25 +30,14 @@ export default function Cart() {
         setItemAdded(itemRemove)
     }
 
-    // const sumaTotal = () => {
-    //     itemAdded.map( item => item.price  )
-    //         const numero = itemAdded[i].price;
-    //         const total = suma + numero ;
-    //         setSuma(total);
-
-
-    // }
-
     const sumaTotal = () => {
-
-        const sumar = itemAdded.map((item) => parseFloat(item.price))
-            .reduce((previous, current) => {
-                return previous + current;
-            }, 0);
-
+       
+        const sumar = itemAdded.reduce((previous, current) => {
+                return previous + (current.quantity * current.price);
+        }, 0);
         setSuma(sumar);
-
     }
+
 
 
     useEffect(() => {
@@ -72,7 +61,7 @@ export default function Cart() {
 
         <div style={{ marginTop: '4%', marginBottom: '1%' }}>
 
-            {itemAdded.length > 0 && itemAdded.map(item => <div key={item.title}> <h5>x{item.quantity} {item.title}: ${item.price}</h5></div>)}
+            {itemAdded.length > 0 && itemAdded.map(item => <div key={item.title}> <h5>x{item.quantity} {item.title}: ${item.price * item.quantity} (${item.price} c/u)</h5></div>)}
             <h4>Total: ${suma}</h4>
 
         </div>
@@ -85,7 +74,7 @@ export default function Cart() {
         <div style={{ marginTop: '4%' }}>
 
             {itemAdded.length > 0 && itemAdded.map(item => <div key={item.title}> <img style={{ width: '10%' }} src={item.pictureUrl} alt={item.altImg} />
-                <h5>Producto: {item.title}</h5> <h5>Cantidad: {item.quantity}</h5>  <h5>Precio: ${item.price}</h5>
+                <h5>Producto: {item.title}</h5> <h5>Cantidad: {item.quantity}</h5>  <h5>Precio: ${item.price} c/u</h5>
                 <h5>{item.description}</h5> <Button variant='dark' onClick={() => removeItem(item.id)}>Remove Item</Button> <hr /></div>)}
         </div>
 

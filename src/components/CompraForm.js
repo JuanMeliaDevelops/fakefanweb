@@ -1,7 +1,6 @@
-import { collection, addDoc, Timestamp, setDoc, doc, getDoc } from "firebase/firestore";
+import {  collection, addDoc, Timestamp, setDoc, doc, getDoc } from "firebase/firestore";
 import { getData } from '../firebase';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useContext } from "react"
 import { CartContext } from '../context/cartContext';
@@ -25,7 +24,7 @@ export default function CompraForm() {
 
     // Buyer
 
-    const [button, setButton] = useState(true);
+    const [activarBoton, setActivarBoton] = useState(true);
 
     const [email, setEmail] = useState();
     const [nombre, setNombre] = useState();
@@ -36,28 +35,37 @@ export default function CompraForm() {
 
 
     // HABILITAR BOTON
-    // const botonHabilitar = () => {
 
-    //     if (email !== '' || nombre !== '' || dni !== '' || tarjeta !== '' || telefono !== '' || direccion !== '') {
-    //         setButton(true)
-    //     }
+    const botonHabilitar = () => {
 
-    // }
+        if (email !== '' && nombre !== '' && dni !== '' && tarjeta !== '' && telefono !== '' && direccion !== '')  {
+
+            setActivarBoton(false);
+        }
+
+        else {
+            setActivarBoton(true);
+        }
+
+    }
+
+useEffect( ()=>{
+    botonHabilitar();
+},[]);
 
 
 
-    // Fetch Orden de base de Datos
-    const fetchOrden = async () => {
+     // Fetch Orden de base de Datos
+     const fetchOrden = async () => {
         const docRef = doc(getData(), "ordenes", `${numeroCompra}`);
         const docSnap = await getDoc(docRef);
         setItemOrden(docSnap);
     }
 
-    console.log(itemOrden)
+    
 
     const comprar = async () => {
-        if (button) {
-
+ 
             const docRef = await addDoc(collection(getData(), "ordenes"), {
                 compra: itemAdded,
                 buyer: { nombre: nombre, email: email, dni: dni, tarjeta: tarjeta, telefono: telefono, direccion: direccion },
@@ -65,7 +73,7 @@ export default function CompraForm() {
                 total: suma,
             });
             setNumeroCompra(docRef.id);
-            console.log("Id de compra", docRef.id);
+           
 
             //  Actualizar stock productos de base de Datos
             // const actualizarStock =  () => {
@@ -80,11 +88,12 @@ export default function CompraForm() {
                 setItemAdded([])
             }, 800)
 
-        }
+        
 
 
 
     }
+
 
 
 
@@ -94,16 +103,17 @@ export default function CompraForm() {
 
                 <h2>Felicidades {nombre} tu compra se ha realizado con exito!</h2>
                 <br />
-                <h3>Tu orden de compra es: {numeroCompra}</h3>
+                <h3>Tu orden de compra es: {numeroCompra}.</h3>
                 <br />
-                <h4>Te enviamos un mail de confirmacion junto a tus datos a: {email}</h4>
+                <h4>Te enviamos un mail de confirmacion junto a tus datos a: {email}.</h4>
 
                 <div style={{ marginTop: '4%', marginBottom: '4%' }}>
 
-                    {/* Mostrar Productos de compra desde la base de datos por la orden */}
+                    {/* Mostrar Productos de compra desde la base de datos por la orden hacer en otra route */}
                     {/* {itemOrden.compra.length > 0 && itemOrden.compra.map(item => <div key={item.title}> <h5>x{item.quantity} {item.title}: ${item.price}</h5></div>)} */}
+                  
                     <h4>Total: ${suma}</h4>
-
+                    <br/>   <br/>
                     <Link to='/category'><Button variant='dark'>Volver a la tienda </Button> </Link>
 
                 </div>
@@ -155,8 +165,8 @@ export default function CompraForm() {
                     <Form.Control type="text" placeholder="Direccion" onChange={(event) => setDireccion(event.target.value)} />
                 </Form.Group>
 
-                {!button && <Button variant="dark" disabled> Confirmar compra </Button>}
-                {button && <Button variant="dark" onClick={comprar} enabled> Confirmar compra </Button>}
+                
+                <Button variant="dark" onClick={comprar} disabled={activarBoton}> Confirmar compra </Button>
 
 
             </Form>

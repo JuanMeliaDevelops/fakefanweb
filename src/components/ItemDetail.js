@@ -21,12 +21,13 @@ function ItemDetail({ details }) {
 
     const { id } = useParams();
 
-    const [isInCart, setIsInCart] = useState(false);
+    const [itIsInCart, setItIsInCart] = useState(false);
 
 
 
-
-   
+    const isInCart = (id) => {
+        return itemAdded.some(item => item.id === id)
+    }
 
 
     const onAdd = (count) => {
@@ -34,15 +35,17 @@ function ItemDetail({ details }) {
 
         if (cantidad !== 0 && cantidad <= stock) {
 
-            if (!isInCart) {
+            if (isInCart(details.id)) {
+                
+                setItIsInCart(true);
+
+            }
+            else {
                 setCantidad(count);
                 setProductAdded(true);
-                console.log('Se agrego', count, ' de ', details.title)
                 itemAdded.push({ ...details, quantity: count })
                 setItemAdded(itemAdded);
-                console.log(itemAdded)
-
-    
+                
 
             }
         }
@@ -91,6 +94,7 @@ function ItemDetail({ details }) {
                     <h4>${details.price}</h4>
                     {!productAdded && showItemCount()}
                     {productAdded && showButton()}
+                    {itIsInCart && <> <br /> <br /> <h6 >Este producto ya se encuentra en el carrito de compras</h6> </>}
 
                 </div>
 

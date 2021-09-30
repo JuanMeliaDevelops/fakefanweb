@@ -8,10 +8,7 @@ import ItemDetail from './ItemDetail'
 import { getData } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
-//Imagenes 
-import itemImg from './assets/imgs/labelStyle.jpg'
-import itemImg2 from './assets/imgs/labelStyle2.jpg'
-import itemImg3 from './assets/imgs/labelStyle3.jpg'
+
 
 function ItemDetailContainer() {
     const { id } = useParams();
